@@ -56,5 +56,8 @@
 ##### Во вкладке Suites находятся подробные данные о прохождении теста с приложенными логами и скриншотами/видео о прохождении
 ![This is an image](attachments/screenshot/allure_suites.jpg)
 
+##### Видео-прохождение теста
+![This is an image](attachments/video/selenoid.gif)
+
 ##### В канал в мессенджере telegram приходит краткая версия отчёта с ссылкой на полноценную версию в аллюре
 ![This is an image](attachments/screenshot/telegram_report.jpg)
