@@ -33,7 +33,7 @@ def reqres():
     return reqres_session
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope='function', autouse=False)
 def setup_chrome(demoshop):
     options = Options()
     selenoid_capabilities = {

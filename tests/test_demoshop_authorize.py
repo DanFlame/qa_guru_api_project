@@ -13,7 +13,7 @@ WEB_URL_DEMOSHOP = os.getenv("WEB_URL_DEMOSHOP")
 browser.config.base_url = WEB_URL_DEMOSHOP
 
 
-def test_login_successful():
+def test_login_successful(setup_chrome):
 
     with allure.step("Open login page"):
         browser.open("/login")
@@ -26,7 +26,7 @@ def test_login_successful():
         browser.element(".account").should(have.text(EMAIL))
 
 
-def test_login_through_api(demoshop):
+def test_login_through_api(demoshop, setup_chrome):
 
     browser.open("")
 
@@ -34,7 +34,7 @@ def test_login_through_api(demoshop):
         browser.element(".account").should(have.text(f'{EMAIL}'))
 
 
-def test_add_product_to_cart(demoshop):
+def test_add_product_to_cart(demoshop, setup_chrome):
 
     with allure.step("Add product to cart"):
         demoshop.post(url="/addproducttocart/catalog/13/1/1")
@@ -46,7 +46,7 @@ def test_add_product_to_cart(demoshop):
         browser.element(".product-name").should(have.text("Computing and Internet"))
 
 
-def test_add_product_to_wishlist(demoshop):
+def test_add_product_to_wishlist(demoshop, setup_chrome):
 
     with allure.step("Add product to wishlist"):
         demoshop.post(url="/addproducttocart/details/53/2")
@@ -58,7 +58,7 @@ def test_add_product_to_wishlist(demoshop):
         browser.element('.wishlist-content').should(have.text("3rd Album"))
 
 
-def test_remove_product_from_wishlist(demoshop):
+def test_remove_product_from_wishlist(demoshop, setup_chrome):
 
     with allure.step("Add product to wishlist"):
         demoshop.post(url="/addproducttocart/details/53/2")
@@ -78,7 +78,7 @@ def test_remove_product_from_wishlist(demoshop):
         browser.element('.wishlist-content').should(have.text('The wishlist is empty!'))
 
 
-def test_remove_product_from_cart(demoshop):
+def test_remove_product_from_cart(demoshop, setup_chrome):
 
     with allure.step("Add product to cart"):
         demoshop.post(url="/addproducttocart/catalog/13/1/1")
